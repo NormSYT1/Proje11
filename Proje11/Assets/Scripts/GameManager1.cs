@@ -14,7 +14,6 @@ public class GameManager1 : MonoBehaviourPunCallbacks
 
     private float hatPickupTime;
 
-
     [Header("Player")]
     public string playerPrefabLocation;
 
@@ -77,7 +76,6 @@ public class GameManager1 : MonoBehaviourPunCallbacks
             spawnPoints[Random.Range(0, spawnPoints.Length)].position,
             Quaternion.identity);
         PlayerControl playerScript = playerObj.GetComponent<PlayerControl>();
-
         playerScript.photonView.RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer);
     }
     public PlayerControl GetPlayer(int playerId)
